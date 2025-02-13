@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('Smart Queue Management System API is running!');
+    res.send('Smart Queue Management System API is running successfully!');
 });
 
 // Start server
