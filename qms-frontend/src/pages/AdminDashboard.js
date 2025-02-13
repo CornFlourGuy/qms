@@ -4,6 +4,7 @@ import RemoveStaffForm from '../components/RemoveStaffForm';
 import LiveCollections from '../components/LiveCollections';
 import TotalCollection from '../components/TotalCollection';
 import FeedbackList from '../components/FeedbackList';
+import StaffList from '../components/StaffList'; // Import the StaffList component
 
 const AdminDashboard = () => {
     return (
@@ -15,6 +16,7 @@ const AdminDashboard = () => {
                 <LiveCollections />
                 <TotalCollection />
                 <FeedbackList />
+                <StaffList /> {/* Add the StaffList component */}
             </div>
         </div>
     );
