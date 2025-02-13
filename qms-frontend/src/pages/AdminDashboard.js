@@ -1,22 +1,21 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import AddStaffForm from '../components/AddStaffForm';
+import RemoveStaffForm from '../components/RemoveStaffForm';
+import LiveCollections from '../components/LiveCollections';
+import TotalCollection from '../components/TotalCollection';
+import FeedbackList from '../components/FeedbackList';
 
 const AdminDashboard = () => {
-    const navigate = useNavigate();
-
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('role');
-        navigate('/login');
-    };
-
     return (
         <div style={styles.container}>
             <h1>Admin Dashboard</h1>
-            <p>Welcome, Admin!</p>
-            <button onClick={handleLogout} style={styles.button}>
-                Logout
-            </button>
+            <div style={styles.grid}>
+                <AddStaffForm />
+                <RemoveStaffForm />
+                <LiveCollections />
+                <TotalCollection />
+                <FeedbackList />
+            </div>
         </div>
     );
 };
@@ -24,15 +23,12 @@ const AdminDashboard = () => {
 const styles = {
     container: {
         textAlign: 'center',
-        marginTop: '50px',
+        marginTop: '20px',
     },
-    button: {
-        padding: '10px 20px',
-        backgroundColor: '#dc3545',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '4px',
-        cursor: 'pointer',
+    grid: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: '20px',
     },
 };
 

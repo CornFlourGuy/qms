@@ -3,6 +3,7 @@ import LiveQueue from '../components/LiveQueue';
 import Menu from '../components/Menu';
 import Cart from '../components/Cart';
 import Checkout from '../components/Checkout';
+import OrderHistory from '../components/OrderHistory';
 
 const UserDashboard = () => {
     const [cart, setCart] = useState([]);
@@ -40,6 +41,7 @@ const UserDashboard = () => {
                 {cart.length > 0 && (
                     <Checkout cart={cart} clearCart={clearCart} />
                 )}
+                <OrderHistory />
             </div>
         </div>
     );
