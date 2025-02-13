@@ -1,10 +1,10 @@
 import React from 'react';
 
-const HomePage = () => {
+const UserDashboard = () => {
     return (
         <div style={styles.container}>
-            <h1>Welcome to QMS - Queue Management System</h1>
-            <p>Manage queues, orders, and feedback efficiently.</p>
+            <h1>User Dashboard</h1>
+            <p>View live queue, place orders, and track your token status.</p>
         </div>
     );
 };
@@ -16,4 +16,4 @@ const styles = {
     },
 };
 
-export default HomePage;
+export default UserDashboard;

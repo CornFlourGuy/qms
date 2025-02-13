@@ -12,18 +12,15 @@ const LoginPage = () => {
         e.preventDefault();
 
         try {
-            // Send login request to the backend
             const response = await axios.post('http://localhost:5000/auth/login', {
                 email,
                 password,
             });
 
-            // Save token in localStorage or context (for authentication)
             const { token, role } = response.data;
             localStorage.setItem('token', token);
             localStorage.setItem('role', role);
 
-            // Redirect based on user role
             if (role === 'admin') {
                 navigate('/admin/dashboard');
             } else if (role === 'staff') {
@@ -69,7 +66,6 @@ const LoginPage = () => {
     );
 };
 
-// Inline styles for simplicity
 const styles = {
     container: {
         maxWidth: '400px',
