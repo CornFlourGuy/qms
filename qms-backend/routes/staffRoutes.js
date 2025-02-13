@@ -1,13 +1,30 @@
 const express = require('express');
+const bcrypt = require('bcryptjs');
 const db = require('../config/db');
 
 const router = express.Router();
 
-// Get all staff members
-router.get('/staffs', async (req, res) => {
+// Add a new staff member
+router.post('/staffs', async (req, res) => {
+    const { name, email, password } = req.body;
+
     try {
-        const [rows] = await db.query('SELECT id, name, email FROM Users WHERE role = ?', ['staff']);
-        res.json(rows);
+        // Check if the email already exists
+        const [existingUsers] = await db.query('SELECT * FROM Users WHERE email = ?', [email]);
+        if (existingUsers.length > 0) {
+            return res.status(400).json({ message: 'Email already exists' });
+        }
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Insert the new staff member into the database
+        await db.query(
+            'INSERT INTO Users (name, email, password, role) VALUES (?, ?, ?, ?)',
+            [name, email, hashedPassword, 'staff']
+        );
+
+        res.json({ success: true, message: 'Staff added successfully!' });
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Server error' });
