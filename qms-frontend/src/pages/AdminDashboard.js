@@ -1,19 +1,10 @@
-import React from 'react';
+const express = require('express');
+const authMiddleware = require('../middleware/authMiddleware');
 
-const AdminDashboard = () => {
-    return (
-        <div style={styles.container}>
-            <h1>Admin Dashboard</h1>
-            <p>Manage staff, view feedback, and monitor collections.</p>
-        </div>
-    );
-};
+const router = express.Router();
 
-const styles = {
-    container: {
-        textAlign: 'center',
-        marginTop: '50px',
-    },
-};
+router.get('/admin/dashboard', authMiddleware, (req, res) => {
+    res.json({ message: 'Welcome to the admin dashboard!', user: req.user });
+});
 
-export default AdminDashboard;
+module.exports = router;
