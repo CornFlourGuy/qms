@@ -9,6 +9,11 @@ router.post('/staffs', async (req, res) => {
     const { name, email, password } = req.body;
 
     try {
+        // Validate required fields
+        if (!name || !email || !password) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
+
         // Check if the email already exists
         const [existingUsers] = await db.query('SELECT * FROM Users WHERE email = ?', [email]);
         if (existingUsers.length > 0) {
