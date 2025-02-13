@@ -10,7 +10,7 @@ const LiveCollections = () => {
 
     const fetchCollections = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/admin/collections');
+            const response = await axios.get('http://localhost:4123/admin/collections');
             setCollections(response.data);
         } catch (err) {
             console.error(err);

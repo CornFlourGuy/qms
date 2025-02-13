@@ -11,7 +11,7 @@ const OrderHistory = () => {
 
     const fetchOrders = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/orders/history');
+            const response = await axios.get('http://localhost:4123/api/orders/history');
             setOrders(response.data);
         } catch (err) {
             console.error(err);

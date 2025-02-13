@@ -8,7 +8,7 @@ const Checkout = ({ cart, clearCart }) => {
 
     const handleCheckout = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/api/orders', {
+            const response = await axios.post('http://localhost:4123/api/orders', {
                 items: cart,
                 paymentMode: paymentMethod,
             });

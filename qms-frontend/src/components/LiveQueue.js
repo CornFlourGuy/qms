@@ -10,7 +10,7 @@ const LiveQueue = () => {
 
     const fetchQueue = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/queue');
+            const response = await axios.get('http://localhost:4123/api/queue');
             setQueue(response.data);
         } catch (err) {
             console.error(err);

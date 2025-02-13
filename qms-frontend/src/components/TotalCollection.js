@@ -10,7 +10,7 @@ const TotalCollection = () => {
 
     const fetchTotal = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/admin/total-collection');
+            const response = await axios.get('http://localhost:4123/admin/total-collection');
             setTotal(response.data.total);
         } catch (err) {
             console.error(err);

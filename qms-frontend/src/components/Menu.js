@@ -10,7 +10,7 @@ const Menu = ({ addToCart }) => {
 
     const fetchItems = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/items');
+            const response = await axios.get('http://localhost:4123/api/items');
             setItems(response.data);
         } catch (err) {
             console.error(err);

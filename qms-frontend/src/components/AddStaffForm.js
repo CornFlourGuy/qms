@@ -11,7 +11,7 @@ const AddStaffForm = () => {
         e.preventDefault();
 
         try {
-            await axios.post('http://localhost:5000/admin/staffs', {
+            await axios.post('http://localhost:4123/admin/staffs', {
                 name,
                 email,
                 password,

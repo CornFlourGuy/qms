@@ -10,7 +10,7 @@ const FeedbackList = () => {
 
     const fetchFeedback = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/admin/feedback');
+            const response = await axios.get('http://localhost:4123/admin/feedback');
             setFeedbacks(response.data);
         } catch (err) {
             console.error(err);

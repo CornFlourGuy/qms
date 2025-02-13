@@ -9,7 +9,7 @@ const RemoveStaffForm = () => {
         e.preventDefault();
 
         try {
-            await axios.delete('http://localhost:5000/admin/staffs', {
+            await axios.delete('http://localhost:4123/admin/staffs', {
                 data: { email },
             });
             setMessage('Staff removed successfully!');
