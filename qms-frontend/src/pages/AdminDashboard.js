@@ -1,10 +1,39 @@
-const express = require('express');
-const authMiddleware = require('../middleware/authMiddleware');
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const router = express.Router();
+const AdminDashboard = () => {
+    const navigate = useNavigate();
 
-router.get('/admin/dashboard', authMiddleware, (req, res) => {
-    res.json({ message: 'Welcome to the admin dashboard!', user: req.user });
-});
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('role');
+        navigate('/login');
+    };
 
-module.exports = router;
+    return (
+        <div style={styles.container}>
+            <h1>Admin Dashboard</h1>
+            <p>Welcome, Admin!</p>
+            <button onClick={handleLogout} style={styles.button}>
+                Logout
+            </button>
+        </div>
+    );
+};
+
+const styles = {
+    container: {
+        textAlign: 'center',
+        marginTop: '50px',
+    },
+    button: {
+        padding: '10px 20px',
+        backgroundColor: '#dc3545',
+        color: '#fff',
+        border: 'none',
+        borderRadius: '4px',
+        cursor: 'pointer',
+    },
+};
+
+export default AdminDashboard;
